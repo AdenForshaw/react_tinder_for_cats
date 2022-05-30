@@ -1,6 +1,29 @@
-.topbuttons{
-    color: #FF3B63;
+.topbuttons {
     position: absolute;
-    left: 11rem;
+    left: 10.5rem;
     top: 4rem;
+}
+
+button {
+    border: none;
+    background-color: white;
+}
+
+#red {
+    color: #FE4F68;
+}
+
+#grey {
+    color: rgb(185, 185, 185);
+}
+
+#red:hover,
+#grey:hover {
+    background-color: rgb(210, 210, 210, .5);
+    border-radius: 50%;
+}
+
+span:nth-child(2) {
+    position: absolute;
+    left: 7.3rem;
 }

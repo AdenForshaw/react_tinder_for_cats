@@ -9,7 +9,7 @@ import { BsFillHeartFill } from 'react-icons/bs'
 import { BsLightningChargeFill } from 'react-icons/bs'
 
 
-const BottomButtons = ({swipeleft, setSwipeLeft}) => {
+const BottomButtons = ({ swipeleft, setSwipeLeft, swiperight, setSwipeRight}) => {
 
     return (
         <section>
@@ -22,7 +22,7 @@ const BottomButtons = ({swipeleft, setSwipeLeft}) => {
             <div className="button star">
                 <AiFillStar size={14} />
             </div>
-            <button className="button heart">
+            <button className="button heart" onClick={() => setSwipeRight(!swiperight)}>
                 <BsFillHeartFill size={16} />
             </button>
             <div className="button lightning">
