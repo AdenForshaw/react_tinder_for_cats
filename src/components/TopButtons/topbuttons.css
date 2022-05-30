@@ -9,11 +9,11 @@ button {
     background-color: white;
 }
 
-#red {
+.red {
     color: #FE4F68;
 }
 
-#grey {
+.grey {
     color: rgb(185, 185, 185);
 }
 

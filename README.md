@@ -1,4 +1,7 @@
 # Using App
+1. Clone app using your favorite code editor (like VSCode)--in the terminal, type: 'git clone https://github.com/xeonstaff/react_tinder_for_cats'
+2. Install dependencies using terminal: 'npm install'
+3. Run app. In terminal, type: 'npm run start'
 
 # Technologies Used
 • Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

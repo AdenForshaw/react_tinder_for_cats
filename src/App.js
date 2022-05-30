@@ -7,7 +7,6 @@ import CatCard from './components/CatCard/CatCard'
 import Messages from './components/Messages/Messages'
 import TopButtons from './components/TopButtons/TopButtons'
 import BottomButtons from './components/BottomButtons/BottomButtons'
-import catnames from './assets/catnames';
 
 function App() {
   const [swipeleft, setSwipeLeft] = useState(true)
@@ -15,13 +14,12 @@ function App() {
   const [messageTab, setMessageTab] = useState(true)
   const [currentcatUrl, setCurrentCatUrl] = useState('')
   const [currentcatName, setCurrentCatName] = useState('')
-  console.log('app' + currentcatName)
 
   var [savedcats, setSavedCats] = useState({})
 
   //adds current cat to savedcats object if it's 'swiped right' on
   useEffect(() => {
-    if (currentcatUrl && currentcatName){
+    if (currentcatUrl){
     setSavedCats({
       ...savedcats,
       [currentcatName]: currentcatUrl
@@ -44,6 +42,7 @@ function App() {
           setCurrentCatUrl={setCurrentCatUrl}
           currentcatUrl={currentcatUrl}
           setCurrentCatName={setCurrentCatName}
+          currentcatName={currentcatName}
           />
         <BottomButtons
           swipeleft={swipeleft}
@@ -59,7 +58,10 @@ function App() {
     <>
       <img id="phonebackground" src={iphone} alt='iphone background' />
       <TopButtons />
-      <Messages savedcats={savedcats} />
+      <Messages 
+        savedcats={savedcats}
+        messageTab={messageTab} 
+        />
     </>
   );
 }

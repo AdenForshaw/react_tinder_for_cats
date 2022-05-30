@@ -1,19 +1,27 @@
-import React from 'react'
+import {useState, useEffect} from 'react'
 import './messages.css'
+import catmessages from '../../assets/catmessages'
 
 var Card = ({ name, val }) => {
+    const j = Math.floor(Math.random() * 27);
+
     return (
         <>
         <div className="singlecat">
-            <img className="catpic" src={val} alt="kitty!" />
-            <h4 className="name">{name}</h4>
+            <div className="singlecatpic">
+                <img className="catpic" src={val} alt="kitty!" />
+            </div>
+            <div className="singlecatinfo">
+                <p className="name">{name}</p>
+                <p className="message">{catmessages[j]}</p>
+            </div>
         </div>
         <div className="line"></div>
         </>
     )
 }
 
-const Messages = ({ savedcats }) => {
+const Messages = ({ savedcats, messageTab }) => {
     var size = Object.keys(savedcats).length;
 
     return (

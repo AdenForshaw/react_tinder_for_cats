@@ -4,7 +4,7 @@ import CatInfo from '../CatInfo/CatInfo'
 
 const pic_url = 'https://api.thecatapi.com/v1/images/search'
 
-const CatCard = ({ swipeleft, swiperight, currentcatUrl, setCurrentCatUrl, setCurrentCatName}) => {
+const CatCard = ({ swipeleft, swiperight, currentcatUrl, setCurrentCatUrl, setCurrentCatName, currentcatName }) => {
 
   //fetch cat pic
   useEffect(() => {
@@ -34,6 +34,7 @@ const CatCard = ({ swipeleft, swiperight, currentcatUrl, setCurrentCatUrl, setCu
           swiperight={swiperight}
           currentcatUrl={currentcatUrl}
           setCurrentCatName={setCurrentCatName}
+          currentcatName={currentcatName}
         />
       </div>
     </>

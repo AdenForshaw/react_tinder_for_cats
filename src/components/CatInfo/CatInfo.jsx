@@ -4,16 +4,23 @@ import catnames from '../../assets/catnames'
 import cathobbies from '../../assets/cathobbies'
 import './catinfo.css'
 
-const CatInfo = ({ swipeleft, swiperight, setCurrentCatName}) => {
+const CatInfo = ({ swipeleft, swiperight, setCurrentCatName, currentcatName}) => {
     const [catname, setCatName] = useState('')
+    console.log(catname)
     const [catage, setCatAge] = useState('')
     const [currenthobby, setCurrentHobby] = useState([])
+
+    //set cat name on first render
+    useEffect(() => {
+        if(!currentcatName){
+            setCurrentCatName(catname)
+        }
+    });
 
     function changename() {
         const j = Math.floor(Math.random() * 115);
         setCatName(catnames[j])
-        console.log("info" + catname)
-        setCurrentCatName(catname)
+        setCurrentCatName(catname[j])
     }
 
     function changeage() {
