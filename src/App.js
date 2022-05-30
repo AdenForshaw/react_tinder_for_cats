@@ -26,9 +26,8 @@ function App() {
     })
     }
   }, [swiperight])
+  
 
-  if (messageTab) {
-    //main swiping page
     return (
       <>
         <img id="phonebackground" src={iphone} alt='iphone background' />
@@ -36,6 +35,9 @@ function App() {
           messageTab={messageTab}
           setMessageTab={setMessageTab} 
           />
+          
+      {messageTab? 
+      <>
         <CatCard
           swipeleft={swipeleft}
           swiperight={swiperight}
@@ -51,18 +53,14 @@ function App() {
           setSwipeRight={setSwipeRight} 
           />
       </>
+          :
+          <Messages
+            savedcats={savedcats}
+            messageTab={messageTab}
+          />
+      }
+      </>
     )
   }
-  //'messages' page
-  return (
-    <>
-      <img id="phonebackground" src={iphone} alt='iphone background' />
-      <TopButtons />
-      <Messages 
-        savedcats={savedcats}
-        messageTab={messageTab} 
-        />
-    </>
-  );
-}
+
 export default App;

@@ -6,7 +6,6 @@ import './catinfo.css'
 
 const CatInfo = ({ swipeleft, swiperight, setCurrentCatName, currentcatName}) => {
     const [catname, setCatName] = useState('')
-    console.log(catname)
     const [catage, setCatAge] = useState('')
     const [currenthobby, setCurrentHobby] = useState([])
 
