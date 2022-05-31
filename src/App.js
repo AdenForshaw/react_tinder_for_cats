@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 
 import iphone from './assets/iphone.png'
 
@@ -53,11 +53,12 @@ function App() {
           setSwipeRight={setSwipeRight} 
           />
       </>
-          :
-          <Messages
-            savedcats={savedcats}
-            messageTab={messageTab}
-          />
+      :
+        <Messages
+          savedcats={savedcats}
+          messageTab={messageTab}
+        />
+
       }
       </>
     )

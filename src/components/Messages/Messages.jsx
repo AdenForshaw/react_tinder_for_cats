@@ -1,4 +1,3 @@
-import {useState, useEffect} from 'react'
 import './messages.css'
 import catmessages from '../../assets/catmessages'
 
