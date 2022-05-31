@@ -19,49 +19,49 @@ function App() {
 
   //adds current cat to savedcats object if it's 'swiped right' on
   useEffect(() => {
-    if (currentcatUrl){
-    setSavedCats({
-      ...savedcats,
-      [currentcatName]: currentcatUrl
-    })
+    if (currentcatUrl) {
+      setSavedCats({
+        ...savedcats,
+        [currentcatName]: currentcatUrl
+      })
     }
   }, [swiperight])
-  
 
-    return (
-      <>
-        <img id="phonebackground" src={iphone} alt='iphone background' />
-        <TopButtons
-          messageTab={messageTab}
-          setMessageTab={setMessageTab} 
+
+  return (
+    <>
+      <img id="phonebackground" src={iphone} alt='iphone background' />
+      <TopButtons
+        messageTab={messageTab}
+        setMessageTab={setMessageTab}
+      />
+      {/* conditionally render CatCard+BottomButtons or Messages depending on messageTab state*/}
+      {messageTab ?
+        <>
+          <CatCard
+            swipeleft={swipeleft}
+            swiperight={swiperight}
+            setCurrentCatUrl={setCurrentCatUrl}
+            currentcatUrl={currentcatUrl}
+            setCurrentCatName={setCurrentCatName}
+            currentcatName={currentcatName}
           />
-          
-      {messageTab? 
-      <>
-        <CatCard
-          swipeleft={swipeleft}
-          swiperight={swiperight}
-          setCurrentCatUrl={setCurrentCatUrl}
-          currentcatUrl={currentcatUrl}
-          setCurrentCatName={setCurrentCatName}
-          currentcatName={currentcatName}
+          <BottomButtons
+            swipeleft={swipeleft}
+            setSwipeLeft={setSwipeLeft}
+            swiperight={swiperight}
+            setSwipeRight={setSwipeRight}
           />
-        <BottomButtons
-          swipeleft={swipeleft}
-          setSwipeLeft={setSwipeLeft}
-          swiperight={swiperight}
-          setSwipeRight={setSwipeRight} 
-          />
-      </>
-      :
+        </>
+        :
         <Messages
           savedcats={savedcats}
           messageTab={messageTab}
         />
 
       }
-      </>
-    )
-  }
+    </>
+  )
+}
 
 export default App;
