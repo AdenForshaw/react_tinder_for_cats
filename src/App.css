@@ -1,6 +1,30 @@
-#phonebackground {
-  max-height: 700px;
-  position: fixed;
-  top: 0px;
-  left: 0px;
+.topbuttonbox {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.224);
+    margin: 2vh;
+}
+
+.catbox {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.bottombuttonbox {
+    max-height: 70vh;
+    display: flex;
+    margin: 5vh;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.224);
+    margin: 2vh;
+    padding: 2vh;
+}
+
+.messagebox{
+    display: flex;
+    justify-content: left;
+    margin-left: 20vw;
 }

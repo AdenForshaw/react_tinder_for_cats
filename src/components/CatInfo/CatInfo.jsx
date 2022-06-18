@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { AiFillInfoCircle } from 'react-icons/ai'
+// import { AiFillInfoCircle } from 'react-icons/ai'
 import catnames from '../../assets/catnames'
 import cathobbies from '../../assets/cathobbies'
 import './catinfo.css'
@@ -17,7 +17,7 @@ const CatInfo = ({ swipeleft, swiperight, setCurrentCatName, currentcatName }) =
     });
 
     //number of names in catnames list
-    let kittynamesnum = 12
+    let kittynamesnum = 215
 
     function changename() {
         const j = Math.floor(Math.random() * kittynamesnum);
@@ -63,9 +63,10 @@ const CatInfo = ({ swipeleft, swiperight, setCurrentCatName, currentcatName }) =
                 <p>{currenthobby[0]}</p>
                 <p>{currenthobby[1]}</p>
             </div>
-            <div id="infocircle">
+            {/* decorative info icon - uncomment to add functionality */}
+            {/* <div id="infocircle">
                 <AiFillInfoCircle size={23} />
-            </div>
+            </div> */}
         </>
     )
 }

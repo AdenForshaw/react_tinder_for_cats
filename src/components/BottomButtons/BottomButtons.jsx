@@ -14,23 +14,23 @@ const BottomButtons = ({ swipeleft, setSwipeLeft, swiperight, setSwipeRight }) =
     return (
         <section>
             {/* decorative button */}
-            <div className="button arrow">
+            {/* <div className="button arrow">
                 <RiArrowGoBackLine size={14} />
-            </div>
+            </div> */}
             <button className="button cross" onClick={() => setSwipeLeft(!swipeleft)}>
-                <ImCross size={16} />
+                <ImCross size={40} />
             </button>
             {/* decorative button */}
-            <div className="button star">
+            {/* <div className="button star">
                 <AiFillStar size={14} />
-            </div>
+            </div> */}
             <button className="button heart" onClick={() => setSwipeRight(!swiperight)}>
-                <BsFillHeartFill size={16} />
+                <BsFillHeartFill size={40} />
             </button>
             {/* decorative button */}
-            <div className="button lightning">
+            {/* <div className="button lightning">
                 <BsLightningChargeFill size={14} />
-            </div>
+            </div> */}
         </section>
     )
 }

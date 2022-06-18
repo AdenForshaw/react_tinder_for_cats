@@ -27,15 +27,15 @@ const CatCard = ({ swipeleft, swiperight, currentcatUrl, setCurrentCatUrl, setCu
     <>
       <div id="catimage">
         <img src={currentcatUrl} alt="an adorable kittycat" />
-      </div>
-      <div id="catinfo">
-        <CatInfo 
-          swipeleft={swipeleft} 
-          swiperight={swiperight}
-          currentcatUrl={currentcatUrl}
-          setCurrentCatName={setCurrentCatName}
-          currentcatName={currentcatName}
-        />
+        <div className="catinfo">
+          <CatInfo 
+              swipeleft={swipeleft}
+              swiperight={swiperight}
+              currentcatUrl={currentcatUrl}
+              setCurrentCatName={setCurrentCatName}
+              currentcatName={currentcatName} 
+            />
+        </div>
       </div>
     </>
   )

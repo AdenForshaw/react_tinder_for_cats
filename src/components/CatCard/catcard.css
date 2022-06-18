@@ -1,9 +1,6 @@
 #catimage {
-    width: 270px;
-    height: 500px;
-    position: fixed;
-    top: 6rem;
-    left: 2.8rem;
+    height: 60vh;
+    width: max-content;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.30);
@@ -16,10 +13,16 @@
     object-fit: cover;
 }
 
-#catinfo {
-    position: fixed;
-    top: 30rem;
-    left: 4rem;
+.catinfo {
+    position: relative;
+    bottom: 28%;
+    left: 6%;
+    max-width: 200px;
+    border: 1px rgba(255, 255, 255, 0.4) solid;
+    padding-left: 8px;
+    padding-right: 0px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 7px;
 }
 
 

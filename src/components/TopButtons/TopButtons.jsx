@@ -8,10 +8,10 @@ const TopButtons = ({ messageTab, setMessageTab }) => {
         <div className="topbuttons">
             <span><button className={messageTab ? 'red' : 'grey'}
                 onClick={!messageTab ? () => setMessageTab(!messageTab)
-                    : null}><SiTinder size={20} /></button></span>
+                    : null}><SiTinder size={40} /></button></span>
             <span><button className={messageTab ? 'grey' : 'red'}
                 onClick={messageTab ? () => setMessageTab(!messageTab)
-                    : null}><IoIosChatbubbles size={20} /></button></span>
+                    : null}><IoIosChatbubbles size={40} /></button></span>
         </div>
     )
 }

@@ -1,19 +1,19 @@
 section {
     display: flex;
-    position: absolute;
-    top: 38rem;
-    left: 3.7rem;
+    justify-content: center;
+    max-width: 80%;
+    gap: 40vw;
+
 }
 
 .button {
-    margin: 0 6px 0 6px;
     border: 1px solid white;
     background-color: white;
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 10px; 
 }
 
 .button:hover{

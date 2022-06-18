@@ -19,6 +19,7 @@
 #interests{
     color:white;
     display:flex;  
+    align-items: center;
 }
 
 p{
@@ -33,12 +34,4 @@ p{
 p:nth-child(1){
     border:2px solid white;
     margin-right:10px;
-}
-
-#infocircle{
-    color:white;
-    position:absolute;
-    top:38px;
-    left:200px;
-
 }

@@ -1,8 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react'
 
-import iphone from './assets/iphone.png'
-
 import CatCard from './components/CatCard/CatCard'
 import Messages from './components/Messages/Messages'
 import TopButtons from './components/TopButtons/TopButtons'
@@ -30,35 +28,41 @@ function App() {
 
   return (
     <>
-      <img id="phonebackground" src={iphone} alt='iphone background' />
-      <TopButtons
-        messageTab={messageTab}
-        setMessageTab={setMessageTab}
-      />
+      <div className="topbuttonbox">
+        <TopButtons
+          messageTab={messageTab}
+          setMessageTab={setMessageTab}
+        />
+      </div>
       {/* conditionally render CatCard+BottomButtons or Messages depending on messageTab state*/}
       {messageTab ?
         <>
-          <CatCard
-            swipeleft={swipeleft}
-            swiperight={swiperight}
-            setCurrentCatUrl={setCurrentCatUrl}
-            currentcatUrl={currentcatUrl}
-            setCurrentCatName={setCurrentCatName}
-            currentcatName={currentcatName}
-          />
-          <BottomButtons
-            swipeleft={swipeleft}
-            setSwipeLeft={setSwipeLeft}
-            swiperight={swiperight}
-            setSwipeRight={setSwipeRight}
-          />
+          <div className="catbox">
+            <CatCard
+              swipeleft={swipeleft}
+              swiperight={swiperight}
+              setCurrentCatUrl={setCurrentCatUrl}
+              currentcatUrl={currentcatUrl}
+              setCurrentCatName={setCurrentCatName}
+              currentcatName={currentcatName}
+            />
+          </div>
+          <div className="bottombuttonbox">
+            <BottomButtons
+              swipeleft={swipeleft}
+              setSwipeLeft={setSwipeLeft}
+              swiperight={swiperight}
+              setSwipeRight={setSwipeRight}
+            />
+          </div>
         </>
         :
-        <Messages
-          savedcats={savedcats}
-          messageTab={messageTab}
-        />
-
+        <div className="messagebox">
+          <Messages
+            savedcats={savedcats}
+            messageTab={messageTab}
+          />
+        </div>
       }
     </>
   )
