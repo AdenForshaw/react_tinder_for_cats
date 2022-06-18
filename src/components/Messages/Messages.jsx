@@ -1,21 +1,24 @@
 import './messages.css'
 import catmessages from '../../assets/catmessages'
 
+//number of items in messages list
+let messagenum = catmessages.length
+
 var Card = ({ name, val }) => {
-    const j = Math.floor(Math.random() * 27);
+    const j = Math.floor(Math.random() * messagenum);
 
     return (
         <>
-        <div className="singlecat">
-            <div className="singlecatpic">
-                <img className="catpic" src={val} alt="kitty!" />
+            <div className="singlecat">
+                <div className="singlecatpic">
+                    <img className="catpic" src={val} alt="kitty!" />
+                </div>
+                <div className="singlecatinfo">
+                    <p className="name">{name}</p>
+                    <p className="message">{catmessages[j]}</p>
+                </div>
             </div>
-            <div className="singlecatinfo">
-                <p className="name">{name}</p>
-                <p className="message">{catmessages[j]}</p>
-            </div>
-        </div>
-        <div className="line"></div>
+            <div className="line"></div>
         </>
     )
 }

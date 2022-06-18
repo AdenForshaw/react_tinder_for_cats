@@ -17,7 +17,7 @@ const CatInfo = ({ swipeleft, swiperight, setCurrentCatName, currentcatName }) =
     });
 
     //number of names in catnames list
-    let kittynamesnum = 215
+    let kittynamesnum = catnames.length
 
     function changename() {
         const j = Math.floor(Math.random() * kittynamesnum);
@@ -38,7 +38,7 @@ const CatInfo = ({ swipeleft, swiperight, setCurrentCatName, currentcatName }) =
     }
 
     //number of items in hobby list
-    let hobbynum=192
+    let hobbynum = cathobbies.length
 
     function changehobby() {
         var j = Math.floor(Math.random() * hobbynum);

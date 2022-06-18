@@ -2,7 +2,6 @@ const catmessages =
     [
         'whats up baybay',
         'are you my mouse? <3',
-        'cheesed to meet you',
         'hi',
         'hey',
         'u up?',
@@ -26,7 +25,12 @@ const catmessages =
         'i dont know any good pickup lines',
         'pet me?',
         'adopt me?',
-        'milk?'
+        'milk?',
+        'I love you, meow and forever.',
+        "I think you're one cool cat.",
+        'Meow + You = Together Furever.',
+        "Meow you doin’?",
+        "it would be a CATastrophe if you don't date me"
     ]
 
 export default catmessages
