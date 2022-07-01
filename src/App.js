@@ -1,6 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react'
 
+import TinderCard from './components/TinderCard/TinderCard'
 import CatCard from './components/CatCard/CatCard'
 import Messages from './components/Messages/Messages'
 import TopButtons from './components/TopButtons/TopButtons'
@@ -38,14 +39,17 @@ function App() {
       {messageTab ?
         <>
           <div className="catbox">
-            <CatCard
+            <TinderCard />
+            {/* <CatCard
               swipeleft={swipeleft}
+              setSwipeLeft={setSwipeLeft}
               swiperight={swiperight}
+              setSwipeRight={setSwipeRight}
               setCurrentCatUrl={setCurrentCatUrl}
               currentcatUrl={currentcatUrl}
               setCurrentCatName={setCurrentCatName}
               currentcatName={currentcatName}
-            />
+            /> */}
           </div>
           <div className="bottombuttonbox">
             <BottomButtons

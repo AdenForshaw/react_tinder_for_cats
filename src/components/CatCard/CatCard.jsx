@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import './catcard.css'
 import CatInfo from '../CatInfo/CatInfo'
+import TinderCard from 'react-tinder-card'
 
 const pic_url = 'https://api.thecatapi.com/v1/images/search'
 
-const CatCard = ({ swipeleft, swiperight, currentcatUrl, setCurrentCatUrl, setCurrentCatName, currentcatName }) => {
+const CatCard = ({ swipeleft, setSwipeLeft, swiperight, setSwipeRight, currentcatUrl, setCurrentCatUrl, setCurrentCatName, currentcatName }) => {
 
-  //fetch cat pic
+  //fetch cat pic after each swipe
   useEffect(() => {
     fetch(pic_url)
       .then(response => {
@@ -24,10 +25,15 @@ const CatCard = ({ swipeleft, swiperight, currentcatUrl, setCurrentCatUrl, setCu
   }, [swipeleft,swiperight])
 
   return (
-    <>
+    <TinderCard
+      onSwipe={()=>setSwipeRight(!swiperight)}
+      onCardLeftScreen={() => setSwipeRight(!swiperight)}
+      onSwipeRequirementFulfilled={() => setSwipeRight(!swiperight)}
+
+    >
       <div id="catimage">
         <img src={currentcatUrl} alt="an adorable kittycat" />
-        <div className="catinfo">
+        {/* <div className="catinfo">
           <CatInfo 
               swipeleft={swipeleft}
               swiperight={swiperight}
@@ -35,9 +41,9 @@ const CatCard = ({ swipeleft, swiperight, currentcatUrl, setCurrentCatUrl, setCu
               setCurrentCatName={setCurrentCatName}
               currentcatName={currentcatName} 
             />
-        </div>
+        </div> */}
       </div>
-    </>
+    </TinderCard>
   )
 }
 
