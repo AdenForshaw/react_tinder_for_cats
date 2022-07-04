@@ -16,8 +16,13 @@ const TinderCard = () => {
         pic: "https://cdn2.thecatapi.com/images/31n.jpg"
     }, {
         age: 3, hobby: ["Parkour", "Skiing"], name: "Boo",
+        pic: "https://cdn2.thecatapi.com/images/5jl.jpg"
+    },
+        , {
+        age: 33, hobby: ["Houseplants", "Mice"], name: "Fifi",
         pic: "https://cdn2.thecatapi.com/images/8k5.gif"
-    }]
+    }
+    ]
 
     console.log(card_stack)
 
@@ -91,8 +96,8 @@ const TinderCard = () => {
                 <TindyCard key={cat.pic}>
                     <img src={cat.pic} alt={cat.name} />
                     <h1>{cat.name}</h1>
-                </TindyCard> 
-            ):''}
+                </TindyCard>
+            ) : ''}
         </>
     )
 }
