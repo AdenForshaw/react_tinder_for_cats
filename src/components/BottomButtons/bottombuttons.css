@@ -1,19 +1,18 @@
 section {
     display: flex;
     position: absolute;
-    top: 38rem;
-    left: 3.7rem;
+    top: 42rem;
 }
 
 .button {
-    margin: 0 6px 0 6px;
     border: 1px solid white;
     background-color: white;
-    border-radius: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     padding: 10px;
+    border-radius: 12px;
+    margin-left:10px;
 }
 
 .button:hover{
@@ -37,6 +36,6 @@ section {
     color: #38E9BA;
 }
 
-.lightning {
+.favourites {
     color: #9B4ED9;
 }

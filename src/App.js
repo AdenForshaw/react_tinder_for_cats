@@ -1,25 +1,47 @@
 import './App.css';
 import { useEffect, useState } from 'react'
 
-import iphone from './assets/iphone.png'
-
 import CatCard from './components/CatCard/CatCard'
-import Messages from './components/Messages/Messages'
-import TopButtons from './components/TopButtons/TopButtons'
+import Favourites from './components/Favourites/Favourites'
 import BottomButtons from './components/BottomButtons/BottomButtons'
+
+const API_KEY = 'DEMO-API-KEY'
+const API_URL = 'https://api.thecatapi.com/v1/images/search?limit=10'
 
 function App() {
   const [swipeleft, setSwipeLeft] = useState(true)
   const [swiperight, setSwipeRight] = useState(true)
-  const [messageTab, setMessageTab] = useState(true)
-  const [currentcatUrl, setCurrentCatUrl] = useState('')
+  const [showFavourites, setShowFavourites] = useState(true)
   const [currentcatName, setCurrentCatName] = useState('')
+  const [currentcatUrl, setCurrentCatUrl] = useState('')
 
+  const [lastDirection, setLastDirection] = useState()
+
+  const [catImages, setCatImages] = useState([])
+
+  const refreshCatImages = ()=>
+  {
+  
+    fetch(API_URL, {'x-api-key': API_KEY})
+    .then(response => {
+      if (response.ok) {
+        return response.json()
+      }
+      throw response;
+    })
+    .then(data => {
+      setCatImages(data)
+    })
+    .catch(error => {
+      console.error("Error fetching cat pic ", error);
+    })
+  }
   var [savedcats, setSavedCats] = useState({})
 
   //adds current cat to savedcats object if it's 'swiped right' on
   useEffect(() => {
     if (currentcatUrl) {
+      console.log("save",currentcatUrl)
       setSavedCats({
         ...savedcats,
         [currentcatName]: currentcatUrl
@@ -27,39 +49,44 @@ function App() {
     }
   }, [swiperight])
 
+  //fetch cat pic
+  useEffect(() => {
+    refreshCatImages();
+  }, [])
+
 
   return (
     <>
-      <img id="phonebackground" src={iphone} alt='iphone background' />
-      <TopButtons
-        messageTab={messageTab}
-        setMessageTab={setMessageTab}
-      />
       {/* conditionally render CatCard+BottomButtons or Messages depending on messageTab state*/}
-      {messageTab ?
+      {showFavourites ?
         <>
-          <CatCard
-            swipeleft={swipeleft}
-            swiperight={swiperight}
-            setCurrentCatUrl={setCurrentCatUrl}
-            currentcatUrl={currentcatUrl}
-            setCurrentCatName={setCurrentCatName}
+           <div className='app'>
+          <div className='cardContainer'>
+        <button className="button" onClick={refreshCatImages}>Refresh Kitties</button>
+          {catImages.map((catImage) =>
+          <CatCard key={catImage.id} 
+
+            setSwipeRight={setSwipeRight}
+            setSwipeLeft={setSwipeLeft}
+            currentcatUrl={catImage.url}
             currentcatName={currentcatName}
           />
+          )}
+
+      </div>
+    </div>
           <BottomButtons
-            swipeleft={swipeleft}
             setSwipeLeft={setSwipeLeft}
-            swiperight={swiperight}
+            setShowFavourites={setShowFavourites}
             setSwipeRight={setSwipeRight}
           />
         </>
-        :
-        <Messages
-          savedcats={savedcats}
-          messageTab={messageTab}
-        />
+:
+<Favourites
+  savedcats={savedcats}
+/>
 
-      }
+}
     </>
   )
 }

@@ -1,42 +1,23 @@
 import React, {useState, useEffect} from 'react'
-import './catcard.css'
 import CatInfo from '../CatInfo/CatInfo'
+import TinderCard from '../TinderCard/TinderCard'
 
 const pic_url = 'https://api.thecatapi.com/v1/images/search'
 
-const CatCard = ({ swipeleft, swiperight, currentcatUrl, setCurrentCatUrl, setCurrentCatName, currentcatName }) => {
+const CatCard = ({ setSwipeRight,currentcatUrl,currentcatName}) => {
 
-  //fetch cat pic
-  useEffect(() => {
-    fetch(pic_url)
-      .then(response => {
-        if (response.ok) {
-          return response.json()
-        }
-        throw response;
-      })
-      .then(data => {
-        setCurrentCatUrl(data[0].url);
-      })
-      .catch(error => {
-        console.error("Error fetching cat pic ", error);
-      })
-  }, [swipeleft,swiperight])
+  const swiped = (direction, currentcatUrl) => {
+    console.log(direction)
+    setSwipeRight(true)
+  }
 
   return (
     <>
-      <div id="catimage">
-        <img src={currentcatUrl} alt="an adorable kittycat" />
-      </div>
-      <div id="catinfo">
-        <CatInfo 
-          swipeleft={swipeleft} 
-          swiperight={swiperight}
-          currentcatUrl={currentcatUrl}
-          setCurrentCatName={setCurrentCatName}
-          currentcatName={currentcatName}
-        />
-      </div>
+      <TinderCard className='swipe' onSwipe={(dir) => swiped(dir, currentcatUrl)}>
+        <div style={{ backgroundImage: 'url(' + currentcatUrl+ ')' }} className='card'>
+          <h3>{currentcatName}</h3>
+        </div>
+      </TinderCard>
     </>
   )
 }

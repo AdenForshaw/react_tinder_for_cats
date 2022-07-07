@@ -1,6 +1,8 @@
-import './messages.css'
+import './favourites.css'
 import catmessages from '../../assets/catmessages'
 
+
+//ToDo: Show a grid of Grid or List of the Favourites (those that have been swiped right)
 var Card = ({ name, val }) => {
     const j = Math.floor(Math.random() * 27);
 
@@ -20,23 +22,12 @@ var Card = ({ name, val }) => {
     )
 }
 
-const Messages = ({ savedcats, messageTab }) => {
+const Favourites = ({ savedcats, messageTab }) => {
     var size = Object.keys(savedcats).length;
 
     return (
-        <div id="messages">
-            <span id="mesnum"><p>Messages</p><p id="mesnumnum">{size}</p></span>
-            {
-                Object.entries(savedcats).map(([key, val]) =>
-                    <Card
-                        key={key}
-                        name={key}
-                        val={val}
-                    />
-                )
-            }
-        </div>
+        <div id="grid" class="imgrid"></div>
     )
 }
 
-export default Messages
+export default Favourites
