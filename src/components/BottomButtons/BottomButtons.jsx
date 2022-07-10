@@ -9,7 +9,7 @@ import { BsFillHeartFill } from 'react-icons/bs'
 import { BsLightningChargeFill } from 'react-icons/bs'
 
 
-const BottomButtons = ({ swipeleft, setSwipeLeft, swiperight, setSwipeRight, setShowFavourites }) => {
+const BottomButtons = ({ swipeleft, setSwipeLeft, swiperight, setSwipeRight, setShowFavourites, favouritesCount }) => {
 
     return (
         <section>
@@ -17,7 +17,7 @@ const BottomButtons = ({ swipeleft, setSwipeLeft, swiperight, setSwipeRight, set
                 <ImCross size={16} /> &nbsp;Swipe Left
             </button>
             <button className="button favourites" onClick={() => setShowFavourites()}>
-                &nbsp;Favourites
+                &nbsp;Favourites (`${favouritesCount}`)
             </button>
             <button className="button heart" onClick={() => setSwipeRight(!swiperight)}>
                 <BsFillHeartFill size={16} /> &nbsp;Swipe Right

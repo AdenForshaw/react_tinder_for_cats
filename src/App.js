@@ -48,12 +48,23 @@ function App() {
       })
     }
   }, [swiperight])
-
+  useEffect((i) => {
+    
+      console.log("swipe",i)
+    
+  }, [swiperight, swipeleft])
   //fetch cat pic
   useEffect(() => {
     refreshCatImages();
   }, [])
 
+  function handleSwipe(direction, currentcatUrl) {
+    console.log('App.handleSwipe',direction, currentcatUrl);
+    const swiped = (direction, currentcatUrl) => {
+      console.log(direction)
+      setSwipeRight(true)
+    }
+  }
 
   return (
     <>
@@ -63,9 +74,9 @@ function App() {
            <div className='app'>
           <div className='cardContainer'>
         <button className="button" onClick={refreshCatImages}>Refresh Kitties</button>
-          {catImages.map((catImage) =>
-          <CatCard key={catImage.id} 
-
+          {catImages.map((catImage,index) =>
+          <CatCard key={index} 
+            handleSwipe={handleSwipe} 
             setSwipeRight={setSwipeRight}
             setSwipeLeft={setSwipeLeft}
             currentcatUrl={catImage.url}

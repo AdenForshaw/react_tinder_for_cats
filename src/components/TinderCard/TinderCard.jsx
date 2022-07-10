@@ -129,6 +129,7 @@ const mouseCoordinatesFromEvent = (e) => {
 }
 
 const TinderCard = React.forwardRef(({ flickOnSwipe = true, children, onSwipe, onCardLeftScreen, className, preventSwipe = [] }, ref) => {
+
   const swipeAlreadyReleased = React.useRef(false)
 
   const element = React.useRef()

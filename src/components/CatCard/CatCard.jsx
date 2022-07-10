@@ -4,16 +4,17 @@ import TinderCard from '../TinderCard/TinderCard'
 
 const pic_url = 'https://api.thecatapi.com/v1/images/search'
 
-const CatCard = ({ setSwipeRight,currentcatUrl,currentcatName}) => {
+const CatCard = ({ setSwipeRight,currentcatUrl,currentcatName, handleSwipe}) => {
 
-  const swiped = (direction, currentcatUrl) => {
-    console.log(direction)
-    setSwipeRight(true)
+  function onCardSwipe(direction) {
+
+    handleSwipe(direction,currentcatUrl)
+  
   }
 
   return (
     <>
-      <TinderCard className='swipe' onSwipe={(dir) => swiped(dir, currentcatUrl)}>
+      <TinderCard className='swipe' onSwipe={onCardSwipe}>
         <div style={{ backgroundImage: 'url(' + currentcatUrl+ ')' }} className='card'>
           <h3>{currentcatName}</h3>
         </div>
